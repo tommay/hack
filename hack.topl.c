@@ -13,7 +13,7 @@ struct topl {
 	struct topl *next_topl;
 	char *topl_text;
 } *old_toplines, *last_redone_topl;
-#define	OTLMAX	20		/* max nr of old toplines remembered */
+#define	OTLMAX	100		/* max nr of old toplines remembered */
 
 doredotopl(){
 	if(last_redone_topl)
