@@ -30,6 +30,10 @@ outrip(){
 	char buf[BUFSZ];
 	register x,y;
 
+	/* The rip strings are expected to be writable so strdup them. */
+	for (int i = 0; rip[i]; i++) {
+		rip[i] = strdup(rip[i]);
+	}
 	cls();
 	(void) strcpy(buf, plname);
 	buf[16] = 0;
