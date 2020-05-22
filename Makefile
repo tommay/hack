@@ -7,7 +7,14 @@ TERMLIB = -lncurses
 # make hack
 GAME = hack
 GAMEDIR = /usr/games/lib/hackdir
-CFLAGS = -g
+# Hack was written in an era when C compilers were much more lenient
+# and and silently anf randomly accepted things that are errors today.
+# As such, use -w to suppress the multitudes of warnings.  Even with
+# this, there were things that are now considered errors that had to
+# be fixed: declare functions static to avoid clashing with implicit
+# non-static declarations, fix some scoping, and include stdlib.h and
+# stdio.h to avoid clashing implicit declarations.
+CFLAGS = -g -w
 HACKCSRC = hack.Decl.c\
 	hack.apply.c hack.bones.c hack.c hack.cmd.c hack.do.c\
 	hack.do_name.c hack.do_wear.c hack.dog.c hack.eat.c hack.end.c\
