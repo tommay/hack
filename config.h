@@ -54,7 +54,7 @@
  * variable MAILREADER; otherwise an internal pager will be used.
  * A stat system call is done on the mailbox every MAILCKFREQ moves.
  */
-#define	MAIL
+/* #define	MAIL */
 #define	DEF_MAILREADER	"/usr/ucb/mail"		/* or e.g. /bin/mail */
 #define	MAILCKFREQ	1
 
