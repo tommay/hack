@@ -1,7 +1,7 @@
 # Hack or Quest Makefile.
 
 # on some systems the termcap library is in -ltermcap
-TERMLIB = -ltermlib
+TERMLIB = -lncurses
 
 
 # make hack
