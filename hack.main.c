@@ -219,9 +219,9 @@ char *argv[];
 				}
 			}
 		if(sfoo = getenv("GENOCIDED")){
+			extern char genocided[], fut_geno[];
 			if(*sfoo == '!'){
 				extern struct permonst mons[CMNUM+2];
-				extern char genocided[], fut_geno[];
 				register struct permonst *pm = mons;
 				register char *gp = genocided;
 

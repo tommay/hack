@@ -5,6 +5,7 @@
 
 extern struct monst *makemon();
 extern struct obj *mkobj_at();
+extern struct obj *some_armor();
 int identify();
 
 doread() {
@@ -32,7 +33,7 @@ doread() {
 		break;
 #endif MAIL
 	case SCR_ENCHANT_ARMOR:
-	    {	extern struct obj *some_armor();
+	    {
 		register struct obj *otmp = some_armor();
 		if(!otmp) {
 			strange_feeling(scroll,"Your skin glows then fades.");
