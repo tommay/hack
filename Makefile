@@ -72,7 +72,7 @@ makedefs:	makedefs.c
 
 
 hack.onames.h:	makedefs def.objects.h
-	makedefs > hack.onames.h
+	./makedefs > hack.onames.h
 
 lint:
 # lint cannot have -p here because (i) capitals are meaningful:
