@@ -2,6 +2,7 @@
 /* hack.termcap.c - version 1.0.3 */
 
 #include <stdio.h>
+#include <time.h>
 #include "config.h"	/* for ROWNO and COLNO */
 #include "def.flag.h"	/* for flags.nonull */
 extern char *tgetstr(), *tgoto(), *getenv();
@@ -235,26 +236,10 @@ static short tmspc10[] = {		/* from termcap */
 };
 
 delay_output() {
-	/* delay 50 ms - could also use a 'nap'-system call */
-	/* BUG: if the padding character is visible, as it is on the 5620
-	   then this looks terrible. */
-	if(!flags.nonull)
-		tputs("50", 1, xputc);
-
-		/* cbosgd!cbcephus!pds for SYS V R2 */
-		/* is this terminfo, or what? */
-		/* tputs("$<50>", 1, xputc); */
-
-	else if(ospeed > 0 || ospeed < SIZE(tmspc10)) if(CM) {
-		/* delay by sending cm(here) an appropriate number of times */
-		register int cmlen = strlen(tgoto(CM, curx-1, cury-1));
-		register int i = 500 + tmspc10[ospeed]/2;
-
-		while(i > 0) {
-			cmov(curx, cury);
-			i -= cmlen*tmspc10[ospeed];
-		}
-	}
+	fflush(stdout);
+	/* delay 50 ms */
+	static const struct timespec fifty_ms = { 0, 50000000 };
+	nanosleep(&fifty_ms, NULL);
 }
 
 cl_eos()			/* free after Robert Viduya */
