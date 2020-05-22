@@ -237,7 +237,7 @@ register int c;
 char *
 parse()
 {
-	static char inline[COLNO];
+	static char inline_[COLNO];
 	register foo;
 
 	flags.move = 1;
@@ -246,23 +246,23 @@ parse()
 		multi = 10*multi+foo-'0';
 	if(multi) {
 		multi--;
-		save_cm = inline;
+		save_cm = inline_;
 	}
-	inline[0] = foo;
-	inline[1] = 0;
+	inline_[0] = foo;
+	inline_[1] = 0;
 	if(foo == 'f' || foo == 'F'){
-		inline[1] = getchar();
+		inline_[1] = getchar();
 #ifdef QUEST
-		if(inline[1] == foo) inline[2] = getchar(); else
+		if(inline_[1] == foo) inline_[2] = getchar(); else
 #endif QUEST
-		inline[2] = 0;
+		inline_[2] = 0;
 	}
 	if(foo == 'm' || foo == 'M'){
-		inline[1] = getchar();
-		inline[2] = 0;
+		inline_[1] = getchar();
+		inline_[2] = 0;
 	}
 	clrlin();
-	return(inline);
+	return(inline_);
 }
 
 char
