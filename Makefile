@@ -62,7 +62,7 @@ HOBJ = hack.Decl.o hack.apply.o hack.bones.o hack.o hack.cmd.o hack.do.o\
 
 $(GAME):	$(HOBJ) Makefile
 	@echo "Loading ..."
-	@ld -X -o $(GAME) /lib/crt0.o $(HOBJ) $(TERMLIB) -lc
+	@cc -o $(GAME) $(HOBJ) $(TERMLIB)
 
 all:	$(GAME) lint
 	@echo "Done."
