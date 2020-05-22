@@ -98,6 +98,10 @@ char exper = 'y', pc;
 extern char readchar();
 	if(flags.female)	/* should have been set in HACKOPTIONS */
 		roles[4] = "Cave-woman";
+	/* The roles strings need to be writeable. */
+	for(i = 0; i < NR_OF_ROLES; i++) {
+		roles[i] = strdup(roles[i]);
+	}
 	for(i = 0; i < NR_OF_ROLES; i++)
 		rolesyms[i] = roles[i][0];
 	rolesyms[i] = 0;
