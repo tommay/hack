@@ -43,8 +43,10 @@ register char let, *tmp;
 			    objects[j].oc_prob = (100+j-first)/(last-first);
 			goto check;
 		}
-		if(sum != 100)
-			error("init-prob error for %c", let);
+		if(sum != 100) {
+			char string_let[2] = { let, 0 };
+			error("init-prob error for %s", string_let);
+		}
 
 		if(objects[first].oc_descr != NULL && let != TOOL_SYM){
 			/* shuffle, also some additional descriptions */
