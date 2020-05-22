@@ -1,0 +1,1 @@
+set env TERM=xterm
