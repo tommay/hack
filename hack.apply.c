@@ -4,13 +4,19 @@
 #include	"hack.h"
 #include	"def.edog.h"
 #include	"def.mkroom.h"
-extern struct monst *bchit();
+static struct monst *bchit(int ddx, int ddy, int range, char sym);
 extern struct obj *addinv();
 extern struct trap *maketrap();
 extern int (*occupation)();
 extern char *occtxt;
 extern char quitchars[];
 extern char pl_character[];
+
+static use_camera(struct obj *obj);
+static use_ice_box(struct obj *obj);
+static use_whistle(struct obj *obj);
+static use_magic_whistle(struct obj *obj);
+static use_pick_axe(struct obj *obj);
 
 doapply() {
 	register struct obj *obj;

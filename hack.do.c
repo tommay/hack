@@ -12,6 +12,8 @@ extern struct monst youmonst;
 extern char *Doname();
 extern char *nomovemsg;
 
+static drop(struct obj *obj);
+
 dodrop() {
 	return(drop(getobj("0$#", "drop")));
 }

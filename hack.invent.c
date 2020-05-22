@@ -7,7 +7,7 @@ extern struct obj *splitobj();
 extern struct obj zeroobj;
 extern char morc;
 extern char quitchars[];
-char *xprname();
+static char *xprname(struct obj *obj, char let);
 
 #ifndef NOWORM
 #include	"def.wseg.h"

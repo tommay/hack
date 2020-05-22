@@ -33,6 +33,10 @@ char obuf[BUFSIZ];	/* BUFSIZ is defined in stdio.h */
 extern char *nomovemsg;
 extern long wailmsg;
 
+#ifdef CHDIR
+static chdirx(char *dir, boolean wr);
+#endif
+
 main(argc,argv)
 int argc;
 char *argv[];
