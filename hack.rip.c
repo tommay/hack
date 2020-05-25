@@ -6,7 +6,7 @@
 
 extern char plname[];
 
-static char *rip[] = {
+static const char *const rip_const[] = {
 "                       ----------",
 "                      /          \\",
 "                     /    REST    \\",
@@ -24,6 +24,8 @@ static char *rip[] = {
 0
 };
 
+static char *rip[SIZE(rip_const)];
+
 outrip(){
 	register char **dp = rip;
 	register char *dpx;
@@ -31,8 +33,8 @@ outrip(){
 	register x,y;
 
 	/* The rip strings are expected to be writable so strdup them. */
-	for (int i = 0; rip[i]; i++) {
-		rip[i] = strdup(rip[i]);
+	for (int i = 0; rip_const[i]; i++) {
+		rip[i] = strdup(rip_const[i]);
 	}
 	cls();
 	(void) strcpy(buf, plname);
