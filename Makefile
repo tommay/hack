@@ -14,7 +14,7 @@ GAMEDIR = /usr/games/lib/hackdir
 # be fixed: declare functions static to avoid clashing with implicit
 # non-static declarations, fix some scoping, and include stdlib.h and
 # stdio.h to avoid clashing implicit declarations.
-CFLAGS = -g -w
+CFLAGS = -g -Wwrite-strings -Wno-endif-labels -Wno-implicit-int -Wno-implicit-function-declaration
 HACKCSRC = hack.Decl.c\
 	hack.apply.c hack.bones.c hack.c hack.cmd.c hack.do.c\
 	hack.do_name.c hack.do_wear.c hack.dog.c hack.eat.c hack.end.c\
