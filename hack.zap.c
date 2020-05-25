@@ -6,9 +6,9 @@
 extern struct obj *mkobj_at();
 extern struct monst *makemon(), *mkmon_at(), youmonst;
 struct monst *bhit();
-char *exclam();
+const char *exclam();
 
-char *fl[]= {
+const char *fl[]= {
 	"magic missile",
 	"bolt of fire",
 	"sleep ray",
@@ -258,7 +258,7 @@ dozap()
 	return(1);
 }
 
-char *
+const char *
 exclam(force)
 register int force;
 {
@@ -399,7 +399,7 @@ register xchar sx,sy;
 register int dx,dy;
 {
 	int abstype = abs(type);
-	register char *fltxt = (type == -1) ? "blaze of fire" : fl[abstype];
+	register const char *fltxt = (type == -1) ? "blaze of fire" : fl[abstype];
 	struct rm *lev;
 	xchar range;
 	struct monst *mon;

@@ -34,9 +34,9 @@ register int otyp;
 {
 static char buf[BUFSZ];
 register struct objclass *ocl = &objects[otyp];
-register char *an = ocl->oc_name;
-register char *dn = ocl->oc_descr;
-register char *un = ocl->oc_uname;
+register const char *an = ocl->oc_name;
+register const char *dn = ocl->oc_descr;
+register const char *un = ocl->oc_uname;
 register int nn = ocl->oc_name_known;
 	switch(ocl->oc_olet) {
 	case POTION_SYM:
@@ -86,9 +86,9 @@ register struct obj *obj;
 static char bufr[BUFSZ];
 register char *buf = &(bufr[PREFIX]);	/* leave room for "17 -3 " */
 register int nn = objects[obj->otyp].oc_name_known;
-register char *an = objects[obj->otyp].oc_name;
-register char *dn = objects[obj->otyp].oc_descr;
-register char *un = objects[obj->otyp].oc_uname;
+register const char *an = objects[obj->otyp].oc_name;
+register const char *dn = objects[obj->otyp].oc_descr;
+register const char *un = objects[obj->otyp].oc_uname;
 register int pl = (obj->quan != 1);
 	if(!obj->dknown && !Blind) obj->dknown = 1; /* %% doesnt belong here */
 	switch(obj->olet) {
@@ -331,7 +331,7 @@ register struct obj *obj;
 	return(s);
 }
 
-char *wrp[] = { "wand", "ring", "potion", "scroll", "gem" };
+const char *wrp[] = { "wand", "ring", "potion", "scroll", "gem" };
 char wrpsym[] = { WAND_SYM, RING_SYM, POTION_SYM, SCROLL_SYM, GEM_SYM };
 
 struct obj *
@@ -495,7 +495,7 @@ srch:
 	i = 1;
 	if(let) i = bases[letindex(let)];
 	while(i <= NROFOBJECTS && (!let || objects[i].oc_olet == let)){
-		register char *zn = objects[i].oc_name;
+		register const char *zn = objects[i].oc_name;
 
 		if(!zn) goto nxti;
 		if(an && strcmp(an, zn))

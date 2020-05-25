@@ -58,8 +58,8 @@ chwepon(otmp,amount)
 register struct obj *otmp;
 register amount;
 {
-register char *color = (amount < 0) ? "black" : "green";
-register char *time;
+register const char *color = (amount < 0) ? "black" : "green";
+register const char *time;
 	if(!uwep || uwep->olet != WEAPON_SYM) {
 		strange_feeling(otmp,
 			(amount > 0) ? "Your hands twitch."

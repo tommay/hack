@@ -3,10 +3,10 @@
 
 #include	"hack.h"
 char POISONOUS[] = "ADKSVabhks";
-extern char *nomovemsg;
+extern const char *nomovemsg;
 extern int (*afternmv)();
 extern int (*occupation)();
-extern char *occtxt;
+extern const char *occtxt;
 extern struct obj *splitobj(), *addinv();
 
 /* hunger texts used on bottom line (each 8 chars long) */
@@ -18,7 +18,7 @@ extern struct obj *splitobj(), *addinv();
 #define FAINTED		5
 #define STARVED		6
 
-char *hu_stat[] = {
+const char *hu_stat[] = {
 	"Satiated",
 	"        ",
 	"Hungry  ",
@@ -34,7 +34,7 @@ init_uhunger(){
 }
 
 #define	TTSZ	SIZE(tintxts)
-struct { char *txt; int nut; } tintxts[] = {
+struct { const char *txt; int nut; } tintxts[] = {
 	"It contains first quality peaches - what a surprise!",	40,
 	"It contains salmon - not bad!",	60,
 	"It contains apple juice - perhaps not what you hoped for.", 20,

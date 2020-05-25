@@ -26,7 +26,7 @@ struct monst youmonst;	/* dummy; used as return value for boomhit */
 
 xchar dlevel = 1;
 xchar xupstair, yupstair, xdnstair, ydnstair;
-char *save_cm = 0, *killer, *nomovemsg;
+const char *save_cm = 0, *killer, *nomovemsg;
 
 long moves = 1;
 long wailmsg = 0;

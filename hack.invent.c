@@ -700,7 +700,7 @@ dotypeinv ()				/* free after Robert Viduya */
 dolook() {
     register struct obj *otmp, *otmp0;
     register struct gold *gold;
-    char *verb = Blind ? "feel" : "see";
+    const char *verb = Blind ? "feel" : "see";
     int	ct = 0;
 
     if(!u.uswallow) {
@@ -786,7 +786,7 @@ merged(otmp,obj,lose) register struct obj *otmp, *obj; {
  * [Bug: d$ and pickup still tell you how much it was.]
  */
 extern int (*occupation)();
-extern char *occtxt;
+extern const char *occtxt;
 static long goldcounted;
 
 countgold(){

@@ -3,7 +3,7 @@
 
 #include	"hack.h"
 
-extern char *nomovemsg;
+extern const char *nomovemsg;
 extern char nul[];
 extern struct obj zeroobj;
 struct engr {

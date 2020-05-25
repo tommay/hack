@@ -177,7 +177,7 @@ register struct obj *obj;
 	*str1 = str;
 }
 
-char *ghostnames[] = {		/* these names should have length < PL_NSIZ */
+const char *ghostnames[] = {		/* these names should have length < PL_NSIZ */
 	"adri", "andries", "andreas", "bert", "david", "dirk", "emile",
 	"frans", "fred", "greg", "hether", "jay", "john", "jon", "kay",
 	"kenny", "maud", "michiel", "mike", "peter", "robert", "ron",
@@ -194,7 +194,7 @@ extern char *shkname();
 	}
 	switch(mtmp->data->mlet) {
 	case ' ':
-		{ register char *gn = (char *) mtmp->mextra;
+		{ register const char *gn = (char *) mtmp->mextra;
 		  if(!*gn) {		/* might also look in scorefile */
 		    gn = ghostnames[rn2(SIZE(ghostnames))];
 		    if(!rn2(2)) (void)

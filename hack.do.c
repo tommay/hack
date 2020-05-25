@@ -10,7 +10,7 @@ extern boolean hmon();
 extern boolean level_exists[];
 extern struct monst youmonst;
 extern char *Doname();
-extern char *nomovemsg;
+extern const char *nomovemsg;
 
 static drop(struct obj *obj);
 

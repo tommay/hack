@@ -5,8 +5,8 @@
 #include <stdio.h>
 
 extern char news0();
-extern char *nomovemsg;
-extern char *exclam();
+extern const char *nomovemsg;
+extern const char *exclam();
 extern struct obj *addinv();
 extern boolean hmon();
 

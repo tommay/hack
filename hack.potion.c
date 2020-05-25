@@ -3,7 +3,7 @@
 
 #include "hack.h"
 extern int float_down();
-extern char *nomovemsg;
+extern const char *nomovemsg;
 extern struct monst youmonst;
 extern struct monst *makemon();
 
@@ -218,7 +218,7 @@ register char *txt;
 	useup(obj);
 }
 
-char *bottlenames[] = {
+const char *bottlenames[] = {
 	"bottle", "phial", "flagon", "carafe", "flask", "jar", "vial"
 };
 
@@ -227,7 +227,7 @@ register struct monst *mon;
 register struct obj *obj;
 {
 	extern char *xname();
-	register char *botlnam = bottlenames[rn2(SIZE(bottlenames))];
+	register const char *botlnam = bottlenames[rn2(SIZE(bottlenames))];
 	boolean uclose, isyou = (mon == &youmonst);
 
 	if(isyou) {

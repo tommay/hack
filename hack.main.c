@@ -16,7 +16,7 @@ extern char plname[PL_NSIZ], pl_character[PL_CSIZ];
 
 int (*afternmv)();
 int (*occupation)();
-char *occtxt;			/* defined when occupation != NULL */
+char const *occtxt;			/* defined when occupation != NULL */
 
 int done1();
 int hangup();
@@ -30,11 +30,11 @@ char SAVEF[PL_NSIZ + 11] = "save/";	/* save/99999player */
 char *hname;		/* name of the game (argv[0] of call) */
 char obuf[BUFSIZ];	/* BUFSIZ is defined in stdio.h */
 
-extern char *nomovemsg;
+extern const char *nomovemsg;
 extern long wailmsg;
 
 #ifdef CHDIR
-static chdirx(char *dir, boolean wr);
+static chdirx(const char *dir, boolean wr);
 #endif
 
 main(argc,argv)
@@ -448,7 +448,7 @@ register char *s;
 #ifdef CHDIR
 static
 chdirx(dir, wr)
-char *dir;
+const char *dir;
 boolean wr;
 {
 

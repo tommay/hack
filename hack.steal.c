@@ -111,7 +111,7 @@ struct monst *mtmp;
 			(void) armoroff(otmp);
 			otmp->cursed = curssv;
 			if(multi < 0){
-				extern char *nomovemsg;
+				extern const char *nomovemsg;
 				extern int (*afternmv)();
 				/*
 				multi = 0;

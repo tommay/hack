@@ -10,7 +10,7 @@ extern struct obj *mkobj_at();
 int warnlevel;		/* used by movemon and dochugw */
 long lastwarntime;
 int lastwarnlev;
-char *warnings[] = {
+const char *warnings[] = {
 	"white", "pink", "red", "ruby", "purple", "black"
 };
 
@@ -75,7 +75,7 @@ movemon()
 		warnlevel = SIZE(warnings)-1;
 	if(warnlevel >= 0)
 	if(warnlevel > lastwarnlev || moves > lastwarntime + 5){
-	    register char *rr;
+	    register const char *rr;
 	    switch(Warning & (LEFT_RING | RIGHT_RING)){
 	    case LEFT_RING:
 		rr = "Your left ring glows";

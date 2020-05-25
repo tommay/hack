@@ -8,7 +8,7 @@ static struct monst *bchit(int ddx, int ddy, int range, char sym);
 extern struct obj *addinv();
 extern struct trap *maketrap();
 extern int (*occupation)();
-extern char *occtxt;
+extern const char *occtxt;
 extern char quitchars[];
 extern char pl_character[];
 
@@ -278,7 +278,7 @@ dig() {
 		}
 	} else
 	if(dig_effort > 100) {
-		register char *digtxt;
+		register const char *digtxt;
 		register struct obj *obj;
 
 		lev = &levl[dpx][dpy];

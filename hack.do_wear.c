@@ -3,7 +3,7 @@
 
 #include "hack.h"
 #include <stdio.h>
-extern char *nomovemsg;
+extern const char *nomovemsg;
 extern char quitchars[];
 extern char *Doname();
 

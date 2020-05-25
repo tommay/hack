@@ -115,7 +115,7 @@ struct you {
 #define Stoned		u.uprops[STONED].p_flgs
 #define PROP(x) (x-RIN_ADORNMENT)       /* convert ring to index in uprops */
 	unsigned umconf:1;
-	char *usick_cause;
+	const char *usick_cause;
 	struct prop uprops[LAST_RING+10];
 
 	unsigned uswallow:1;		/* set if swallowed by a monster */
@@ -134,7 +134,7 @@ struct you {
 
 extern struct you u;
 
-extern char *traps[];
+extern const char *traps[];
 extern char *monnam(), *Monnam(), *amonnam(), *Amonnam(),
 	*doname(), *aobjnam();
 extern char readchar();
@@ -145,7 +145,7 @@ extern xchar curx,cury;	/* cursor location on screen */
 extern coord bhitpos;	/* place where thrown weapon falls to the ground */
 
 extern xchar seehx,seelx,seehy,seely; /* where to see*/
-extern char *save_cm,*killer;
+extern const char *save_cm,*killer;
 
 extern xchar dlevel, maxdlevel; /* dungeon level */
 

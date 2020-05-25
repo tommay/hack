@@ -41,7 +41,7 @@ register struct prop *upp;
 }
 
 /* He is being petrified - dialogue by inmet!tower */
-char *stoned_texts[] = {
+const char *stoned_texts[] = {
 	"You are slowing down.",		/* 5 */
 	"Your limbs are stiffening.",		/* 4 */
 	"Your limbs have turned to stone.",	/* 3 */

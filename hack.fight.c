@@ -3,7 +3,8 @@
 
 #include	"hack.h"
 extern struct permonst li_dog, dog, la_dog;
-extern char *exclam(), *xname();
+extern const char *exclam();
+extern char *xname();
 extern struct obj *mkobj_at();
 
 static boolean far_noise;

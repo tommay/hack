@@ -9,7 +9,7 @@ struct func_tab {
 extern struct func_tab cmdlist[];
 
 struct ext_func_tab {
-	char *ef_txt;
+	const char *ef_txt;
 	int (*ef_funct)();
 };
 

@@ -7,7 +7,7 @@ extern struct monst *makemon();
 
 char vowels[] = "aeiou";
 
-char *traps[] = {
+const char *traps[] = {
 	" bear trap",
 	"n arrow trap",
 	" dart trap",

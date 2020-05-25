@@ -6,7 +6,8 @@
 #include <signal.h>
 #define	Sprintf	(void) sprintf
 extern char plname[], pl_character[];
-extern char *itoa(), *ordin(), *eos();
+extern char *itoa(), *eos();
+extern const char *ordin();
 
 xchar maxdlevel = 1;
 
@@ -61,7 +62,7 @@ static char buf[BUFSZ];
    "burned", "starved" or "tricked" */
 /* Be careful not to call panic from here! */
 done(st1)
-register char *st1;
+register const char *st1;
 {
 
 #ifdef WIZARD
@@ -216,8 +217,8 @@ topten(){
 	int rank, rank0 = -1, rank1 = 0;
 	int occ_cnt = PERSMAX;
 	register struct toptenentry *t0, *t1, *tprev;
-	char *recfile = RECORD;
-	char *reclock = "record_lock";
+	const char *recfile = RECORD;
+	const char *reclock = "record_lock";
 	int sleepct = 300;
 	FILE *rfile;
 	register flg = 0;
@@ -454,7 +455,7 @@ static char buf[12];
 	return(buf);
 }
 
-char *
+const char *
 ordin(n) int n; {
 register int d = n%10;
 	return((d==0 || d>3 || n/10==1) ? "th" : (d==1) ? "st" :
@@ -505,7 +506,7 @@ prscore(argc,argv) int argc; char **argv; {
 	int playerct;
 	int rank;
 	register struct toptenentry *t1, *t2;
-	char *recfile = RECORD;
+	const char *recfile = RECORD;
 	FILE *rfile;
 	register flg = 0;
 	register int i;

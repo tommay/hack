@@ -2,7 +2,7 @@
 /* def.permonst.h - version 1.0.2 */
 
 struct permonst {
-	char *mname,mlet;
+	const char *mname,mlet;
 	schar mlevel,mmove,ac,damn,damd;
 	unsigned pxlth;
 };

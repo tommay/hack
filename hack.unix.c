@@ -107,7 +107,7 @@ gethdate(name) char *name; {
  */
 #define		MAXPATHLEN	1024
 
-register char *np, *path;
+register const char *np, *path;
 char filename[MAXPATHLEN+1];
 	if (index(name, '/') != NULL || (path = getenv("PATH")) == NULL)
 		path = "";
