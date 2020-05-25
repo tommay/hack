@@ -387,7 +387,7 @@ register int f = fork();
 	/* fork succeeded; wait for child to exit */
 	(void) signal(SIGINT,SIG_IGN);
 	(void) signal(SIGQUIT,SIG_IGN);
-	(void) wait((union wait *) 0);
+	(void) wait(NULL);
 	gettty();
 	setftty();
 	(void) signal(SIGINT,done1);
