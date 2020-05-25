@@ -7,6 +7,7 @@
 
 #include	<stdio.h>
 #include	<signal.h>
+#include	<unistd.h>
 #include "hack.h"
 extern int CO, LI;	/* usually COLNO and ROWNO+2 */
 extern char *CD;

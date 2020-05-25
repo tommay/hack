@@ -2,6 +2,8 @@
 /* hack.termcap.c - version 1.0.3 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include "config.h"	/* for ROWNO and COLNO */
 #include "def.flag.h"	/* for flags.nonull */

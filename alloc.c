@@ -18,8 +18,7 @@ long dummy = ftell(stderr);
 
 #else
 
-extern char *malloc();
-extern char *realloc();
+#include <stdlib.h>
 
 long *
 alloc(lth)
