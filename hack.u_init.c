@@ -14,12 +14,13 @@ extern char plname[];
 
 struct you zerou;
 char pl_character[PL_CSIZ];
-char *(roles[]) = {	/* must all have distinct first letter */
+static const char *const roles_const[] = {	/* must all have distinct first letter */
 			/* roles[4] may be changed to -man */
 	"Tourist", "Speleologist", "Fighter", "Knight",
 	"Cave-man", "Wizard"
 };
-#define	NR_OF_ROLES	SIZE(roles)
+#define	NR_OF_ROLES	SIZE(roles_const)
+char *roles[NR_OF_ROLES];
 char rolesyms[NR_OF_ROLES + 1];		/* filled by u_init() */
 
 struct trobj {
@@ -96,12 +97,12 @@ u_init(){
 register int i;
 char exper = 'y', pc;
 extern char readchar();
-	if(flags.female)	/* should have been set in HACKOPTIONS */
-		roles[4] = "Cave-woman";
-	/* The roles strings need to be writeable. */
-	for(i = 0; i < NR_OF_ROLES; i++) {
-		roles[i] = strdup(roles[i]);
+	/* Create the writable roles strings. */
+	for (i = 0; i < NR_OF_ROLES; i++) {
+		roles[i] = strdup(roles_const[i]);
 	}
+	if(flags.female)	/* should have been set in HACKOPTIONS */
+		roles[4] = strdup("Cave-woman");
 	for(i = 0; i < NR_OF_ROLES; i++)
 		rolesyms[i] = roles[i][0];
 	rolesyms[i] = 0;
