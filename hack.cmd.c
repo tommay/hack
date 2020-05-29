@@ -4,6 +4,7 @@
 #include	"hack.h"
 #include	"def.func_tab.h"
 
+/* done1() is now a void function but declaring it int here is ok. */
 int doredraw(),doredotopl(),dodrop(),dodrink(),doread(),dosearch(),dopickup(),
 doversion(),doweararm(),dowearring(),doremarm(),doremring(),dopay(),doapply(),
 dosave(),dowield(),ddoinv(),dozap(),ddocall(),dowhatis(),doengrave(),dotele(),

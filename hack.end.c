@@ -11,7 +11,8 @@ extern const char *ordin();
 
 xchar maxdlevel = 1;
 
-done1()
+void
+done1(int sig)
 {
 	(void) signal(SIGINT,SIG_IGN);
 	pline("Really quit?");
@@ -20,7 +21,7 @@ done1()
 		clrlin();
 		(void) fflush(stdout);
 		if(multi > 0) nomul(0);
-		return(0);
+		return;
 	}
 	done("quit");
 	/* NOTREACHED */
@@ -29,16 +30,18 @@ done1()
 int done_stopprint;
 int done_hup;
 
-done_intr(){
+void
+done_intr(int sig){
 	done_stopprint++;
 	(void) signal(SIGINT, SIG_IGN);
 	(void) signal(SIGQUIT, SIG_IGN);
 }
 
-done_hangup(){
+void
+done_hangup(int sig){
 	done_hup++;
 	(void) signal(SIGHUP, SIG_IGN);
-	done_intr();
+	done_intr(0);
 }
 
 done_in_by(mtmp) register struct monst *mtmp; {
@@ -472,7 +475,8 @@ register x;
 }
 
 #ifdef NOSAVEONHANGUP
-hangup()
+void
+hangup(int sig)
 {
 	(void) signal(SIGINT, SIG_IGN);
 	clearlocks();

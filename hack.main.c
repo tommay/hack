@@ -18,8 +18,8 @@ int (*afternmv)();
 int (*occupation)();
 char const *occtxt;			/* defined when occupation != NULL */
 
-int done1();
-int hangup();
+void done1(int sig);
+void hangup(int sig);
 
 int hackpid;				/* current pid */
 int locknum;				/* max num of players */
