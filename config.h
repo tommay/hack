@@ -64,6 +64,9 @@
 #ifdef BSD
 #define	SUSPEND		/* let ^Z suspend the game */
 #endif BSD
+#ifdef linux
+#define	SUSPEND		/* let ^Z suspend the game */
+#endif linux
 #endif UNIX
 
 #ifdef CHDIR

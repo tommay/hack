@@ -137,6 +137,10 @@ register int change = 0;
 #endif USG
 		change++;
 	}
+#ifdef linux
+	curttyb.c_cc[VSUSP] = 0; /* Disable ^Z, we do our own suspend. */
+	change++;
+#endif linux
 	if(change){
 		setctty();
 	}
