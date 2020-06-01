@@ -27,8 +27,13 @@
 
 #ifdef USG
 
+#ifndef linux
 #include	<termio.h>
 #define termstruct	termio
+#else linux
+#include	<termios.h>
+#define termstruct	termios
+#endif
 #define kill_sym	c_cc[VKILL]
 #define erase_sym	c_cc[VERASE]
 #define EXTABS		TAB3
@@ -38,8 +43,13 @@
 #define CBRKMASK	ICANON
 #define CBRKON		! /* reverse condition */
 #define OSPEED(x)	((x).c_cflag & CBAUD)
+#ifndef linux
 #define GTTY(x)		(ioctl(0, TCGETA, x))
 #define STTY(x)		(ioctl(0, TCSETA, x))	/* TCSETAF? TCSETAW? */
+#else linux
+#define GTTY(x)		(tcgetattr(0, x))
+#define STTY(x)		(tcsetattr(0, TCSADRAIN, x))
+#endif
 
 #else	/* V7 */
 
