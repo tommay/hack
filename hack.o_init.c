@@ -119,8 +119,17 @@ unsigned len;
 restnames(fd) register fd; {
 register int i;
 unsigned len;
+struct objclass objects_save[SIZE(objects)];
 	mread(fd, (char *) bases, sizeof bases);
+	/* Reading objects[] will overwrite the oc_name and oc_descr
+	   pointers to whatever is in the file.  So save the existing
+	   objects[] then use them to reset the pointers correctly. */
+	memcpy(objects_save, objects, sizeof(objects));
 	mread(fd, (char *) objects, sizeof objects);
+	for (i = 0; i < SIZE(objects); i++) {
+		objects[i].oc_name = objects_save[i].oc_name;
+		objects[i].oc_descr = objects_save[i].oc_descr;
+	}
 	for(i=0; i < SIZE(objects); i++) if(objects[i].oc_uname) {
 		mread(fd, (char *) &len, sizeof len);
 		objects[i].oc_uname = (char *) alloc(len);
