@@ -5,6 +5,7 @@
 extern char genocided[60];	/* defined in Decl.c */
 extern char fut_geno[60];	/* idem */
 #include <signal.h>
+#include <stddef.h>
 
 extern char SAVEF[], nul[];
 extern char pl_character[PL_CSIZ];
@@ -207,7 +208,7 @@ register fd;
 	int xl;
 
 	struct permonst *monbegin;
-	long differ;
+	ptrdiff_t differ;
 
 	mread(fd, (char *)&monbegin, sizeof(monbegin));
 	differ = (char *)(&mons[0]) - (char *)(monbegin);
