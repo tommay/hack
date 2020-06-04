@@ -141,7 +141,7 @@ register struct obj *otmp;
 
 	if(otmp == &zeroobj)
 		otmp = 0;
-	if(otmp->otyp == WAN_FIRE && otmp->spe) {
+	if(otmp && otmp->otyp == WAN_FIRE && otmp->spe) {
 		type = BURN;
 		otmp->spe--;
 	} else {
